@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llamar al camarero</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        p { color: #7f8c8d; margin-bottom: 30px; }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 18px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #2980b9; }
+        button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+        .btn-cuenta { background-color: #e67e22; }
+        .btn-cuenta:hover { background-color: #d35400; }
+        .btn-cancelar { background-color: #e74c3c; }
+        .btn-cancelar:hover { background-color: #c0392b; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 id="titulo-mesa">Cargando...</h1>
+        <p>¿Qué necesitas?</
