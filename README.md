@@ -17,4 +17,4 @@ Para personalizar el webhook y la clave API:
 2. Busca las líneas:
    ```javascript
    const URL_WEBHOOK = 'https://axeaa.app.n8n.cloud/webhook/llamar-camarero';
-   const API_KEY = 'TU_CLAVE_SECRETA_AQUI';
+   const API_KEY = 'df9ea6cd-c6d1-4ae2-9836-139a70d2bca1';
