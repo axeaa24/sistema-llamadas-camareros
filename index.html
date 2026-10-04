@@ -46,4 +46,48 @@
 <body>
     <div class="card">
         <h1 id="titulo-mesa">Cargando...</h1>
-        <p>¿Qué necesitas?</
+        <p>¿Qué necesitas?</p>
+
+        <button onclick="enviarPeticion('llamar_camarero')">🔔 Llamar al camarero</button>
+        <button class="btn-cuenta" onclick="enviarPeticion('pedir_cuenta')">💰 Pedir la cuenta</button>
+        <button class="btn-cancelar" onclick="enviarPeticion('cancelar')">❌ Cancelar pedido</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const mesaId = urlParams.get('mesa') || '0';
+        const restauranteId = urlParams.get('rest') || 'rest_001';
+        document.getElementById('titulo-mesa').innerText = `Mesa ${mesaId}`;
+        const URL_WEBHOOK = 'https://axeaa.app.n8n.cloud/webhook/llamar-camarero';
+        const API_KEY = 'df9ea6cd-c6d1-4ae2-9836-139a70d2bca1';
+        async function enviarPeticion(accion) {
+            const botones = document.querySelectorAll('button');
+            botones.forEach(b => b.disabled = true);
+            try {
+                const respuesta = await fetch(URL_WEBHOOK, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY
+                    },
+                    body: JSON.stringify({
+                        mesa_id: parseInt(mesaId),
+                        accion: accion,
+                        restaurante_id: restauranteId
+                    })
+                });
+                if (respuesta.ok) {
+                    alert('✅ Aviso enviado. Un camarero irá en breve.');
+                } else {
+                    alert('❌ Hubo un error al enviar el aviso.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Error de conexión con el servidor.');
+            } finally {
+                botones.forEach(b => b.disabled = false);
+            }
+        }
+    </script>
+</body>
+</html>
